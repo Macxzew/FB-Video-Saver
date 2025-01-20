@@ -14,6 +14,10 @@
 2. Add the FB Video Saver script:
    - Open the [FB Video Saver script page](https://github.com/Macxzew/FB-Video-Saver/releases/latest).
    - Click on the "Install" button.
+3. Ensure the following options are enabled:
+
+   <img src="https://github.com/Macxzew/FB-Video-Saver/blob/main/advice.png?raw=true">
+
 
 ## 📥 Usage
 
