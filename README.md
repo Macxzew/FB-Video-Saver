@@ -10,7 +10,7 @@
 
 ## 👇 Installation
 
-1. Install a userscript manager like [Tampermonkey](https://www.tampermonkey.net/) or [Violentmonkey](https://violentmonkey.github.io/).
+1. Install a userscript manager like [Tampermonkey](https://greasyfork.org/fr/scripts/524263-fb-video-saver).
 2. Add the FB Video Saver script:
    - Open the [FB Video Saver script page](https://github.com/Macxzew/FBVideoSaver/releases/latest).
    - Click on the "Install" button.
