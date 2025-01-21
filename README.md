@@ -6,11 +6,11 @@
 </a>
 </p>
 
-> **FB Video Saver** is a user script for Facebook that allows you to download videos or collections of videos easily, including reels, saved links, and visible videos.
+> **FB Video Saver** is a script for Facebook that allows you to download videos or collections of videos easily, including reels, saved links, and visible videos.
 
 ## 👇 Installation
 
-1. Install a userscript manager like [Tampermonkey](https://greasyfork.org/fr/scripts/524263-fb-video-saver).
+1. Install a script manager like [Tampermonkey](https://greasyfork.org/fr/scripts/524263-fb-video-saver).
 2. Ensure the following options are enabled:
 
    <img src="https://github.com/Macxzew/FB-Video-Saver/blob/main/advice.png?raw=true">
