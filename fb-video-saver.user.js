@@ -146,13 +146,16 @@
           };
   
           const refreshPageContent = async () => {
-              let lastHeight = 0;
+              let lastHeight = document.body.scrollHeight, timer;
               while (true) {
                   window.scrollTo(0, document.body.scrollHeight);
-                  await new Promise(resolve => setTimeout(resolve, 500));
-                  const newHeight = document.body.scrollHeight;
-                  if (newHeight === lastHeight) break;
-                  lastHeight = newHeight;
+                  await new Promise(resolve => {
+                      clearTimeout(timer);
+                      timer = setTimeout(resolve, 5000);
+                  });
+                  const currentHeight = document.body.scrollHeight;
+                  if (currentHeight === lastHeight) break;
+                  lastHeight = currentHeight;
               }
           };
   
