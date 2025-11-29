@@ -137,19 +137,38 @@
 
     const refreshPageContent = async () => {
         let lastHeight = document.body.scrollHeight;
-        let timer;
+        let lastScrollTop = window.scrollY;
+        let lastActivityTime = Date.now();
+
         while (true) {
+            // 1) activité utilisateur : changement de scroll (haut ou bas)
+            const currentScrollTop = window.scrollY;
+            if (currentScrollTop !== lastScrollTop) {
+                lastScrollTop = currentScrollTop;
+                lastActivityTime = Date.now(); // la page "bouge", on reset le timer
+            }
+
+            // 2) scroll auto en bas (pour forcer le chargement infini)
             window.scrollTo(0, document.body.scrollHeight);
-            await new Promise(resolve => {
-                clearTimeout(timer);
-                timer = setTimeout(resolve, 5000);
-            });
+
+            // 3) on attend un peu que le contenu ait le temps de se charger
+            await sleep(500);
+
+            // 4) activité contenu : la hauteur de la page change
             const currentHeight = document.body.scrollHeight;
-            if (currentHeight === lastHeight)
+            if (currentHeight !== lastHeight) {
+                lastHeight = currentHeight;
+                lastActivityTime = Date.now(); // nouveau contenu, on reset le timer
+            }
+
+            // 5) si aucune activité (ni scroll ni nouvelle hauteur) depuis > 10 s, on stop
+            if (Date.now() - lastActivityTime > 10000) {
                 break;
-            lastHeight = currentHeight;
+            }
         }
     };
+
+
 
     const collectAllVideoLinks = (doneSet) => {
         const map = new Map();
